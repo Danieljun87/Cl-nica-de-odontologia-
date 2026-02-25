@@ -61,7 +61,7 @@ const Hero = () => {
     {/* Background Image with Overlay */}
     <div className="absolute inset-0 z-0">
       <img 
-        src="https://i.ibb.co/KcZXvyPX/Gemini-Generated-Image-cqkh0tcqkh0tcqkh.png" 
+        src="https://i.ibb.co/1gW89T4/d15aeee6c0732e11528e6ba253c0e711.jpg" 
         alt="Sorriso Perfeito" 
         className="w-full h-full object-cover object-[90%_center] sm:object-center"
       />
