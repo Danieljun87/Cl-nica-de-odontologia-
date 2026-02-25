@@ -46,7 +46,7 @@ const Hero = () => {
   const [city, setCity] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    fetch('https://ipapi.co/json/')
+    fetch('https://get.geojs.io/v1/ip/geo.json')
       .then(res => res.json())
       .then(data => {
         if (data.city) {
@@ -57,7 +57,7 @@ const Hero = () => {
   }, []);
 
   return (
-  <section className="relative sm:min-h-[100svh] flex items-center pt-32 pb-16 sm:pt-20 sm:pb-12 overflow-hidden">
+  <section className="relative sm:min-h-[100svh] flex items-center pt-24 pb-12 sm:pt-20 sm:pb-12 overflow-hidden">
     {/* Background Image with Overlay */}
     <div className="absolute inset-0 z-0">
       <img 
@@ -71,56 +71,63 @@ const Hero = () => {
     </div>
 
     <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-      <div className="space-y-6 sm:space-y-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-teal/50 bg-brand-teal/10 text-brand-teal text-xs font-medium backdrop-blur-md shadow-[0_0_15px_rgba(0,210,143,0.2)]">
-          <Sparkles className="w-3.5 h-3.5" />
-          Odontologia de Alto Padrão
-        </div>
+      <div className="flex flex-col justify-between sm:block h-full sm:h-auto space-y-0 sm:space-y-8">
         
-        <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl leading-tight drop-shadow-2xl">
-          Seu Sorriso <br />
-          Perfeito <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-emerald-300 drop-shadow-[0_0_15px_rgba(0,210,143,0.3)]">Começa Aqui</span>
-        </h1>
-        
-        <div>
+        {/* Top Block - Pushed to the top */}
+        <div className="space-y-4 sm:space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-teal/50 bg-brand-teal/10 text-brand-teal text-xs font-medium backdrop-blur-md shadow-[0_0_15px_rgba(0,210,143,0.2)]">
+            <Sparkles className="w-3.5 h-3.5" />
+            Odontologia de Alto Padrão
+          </div>
+          
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl leading-tight drop-shadow-2xl">
+            Seu Sorriso <br />
+            Perfeito <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-emerald-300 drop-shadow-[0_0_15px_rgba(0,210,143,0.3)]">Começa Aqui</span>
+          </h1>
+          
           <p className="text-gray-300 text-base sm:text-xl max-w-md leading-relaxed backdrop-blur-sm bg-brand-dark/10 p-2 rounded-lg">
             Estética dental com tecnologia de ponta em um ambiente projetado como um spa para garantir seu conforto absoluto.
           </p>
+        </div>
+        
+        {/* Bottom Block - Pushed down to avoid teeth on mobile */}
+        <div className="mt-40 sm:mt-0 space-y-5 sm:space-y-8">
           {city && (
-            <p className="text-brand-teal font-medium text-sm sm:text-base mt-3 drop-shadow-[0_0_8px_rgba(0,210,143,0.3)]">
+            <div className="inline-block bg-brand-teal/20 border border-brand-teal/30 text-brand-teal font-semibold text-sm sm:text-base px-4 py-2.5 rounded-xl backdrop-blur-md shadow-[0_0_20px_rgba(0,210,143,0.3)]">
               Atendimento exclusivo para pacientes de {city} e região.
-            </p>
-          )}
-        </div>
-        
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-          <button className="btn-pulse bg-brand-teal hover:bg-brand-teal-hover text-brand-dark font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,210,143,0.4)] hover:shadow-[0_0_30px_rgba(0,210,143,0.6)] w-full sm:w-auto text-sm sm:text-base">
-            Agendar Consulta <ChevronRight className="w-4 h-4" />
-          </button>
-          <button className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/30 hover:bg-white/10 transition-all duration-300 font-medium backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] w-full sm:w-auto text-sm sm:text-base">
-            Ver Tratamentos
-          </button>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4">
-          <div className="flex -space-x-3">
-            {[1, 2, 3].map((i) => (
-              <img 
-                key={i}
-                src={`https://i.pravatar.cc/100?img=${i + 10}`} 
-                alt="Paciente" 
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-brand-dark shadow-[0_0_10px_rgba(255,255,255,0.2)]"
-              />
-            ))}
-          </div>
-          <div>
-            <div className="flex text-brand-gold drop-shadow-[0_0_5px_rgba(234,179,8,0.5)]">
-              {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />)}
             </div>
-            <p className="text-xs text-gray-300 mt-0.5">2.000+ pacientes satisfeitos com o efeito transcende</p>
+          )}
+          
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            <button className="btn-pulse bg-brand-teal hover:bg-brand-teal-hover text-brand-dark font-medium px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,210,143,0.4)] hover:shadow-[0_0_30px_rgba(0,210,143,0.6)] w-full sm:w-auto text-sm sm:text-base">
+              Agendar Consulta <ChevronRight className="w-4 h-4" />
+            </button>
+            <button className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/30 hover:bg-white/10 transition-all duration-300 font-medium backdrop-blur-md flex items-center justify-center hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] w-full sm:w-auto text-sm sm:text-base">
+              Ver Tratamentos
+            </button>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+            <div className="flex -space-x-3">
+              {[1, 2, 3].map((i) => (
+                <img 
+                  key={i}
+                  src={`https://i.pravatar.cc/100?img=${i + 10}`} 
+                  alt="Paciente" 
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-brand-dark shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+                />
+              ))}
+            </div>
+            <div>
+              <div className="flex text-brand-gold drop-shadow-[0_0_5px_rgba(234,179,8,0.5)]">
+                {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />)}
+              </div>
+              <p className="text-xs text-gray-300 mt-0.5">2.000+ pacientes satisfeitos com o efeito transcende</p>
+            </div>
           </div>
         </div>
+        
       </div>
       
       <div className="hidden lg:flex justify-end items-end h-full">
