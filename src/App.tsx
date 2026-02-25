@@ -35,7 +35,7 @@ const Navbar = () => (
         <a href="#" className="hover:text-brand-teal transition-colors">Depoimentos</a>
         <a href="#" className="hover:text-brand-teal transition-colors">Contato</a>
       </div>
-      <button className="bg-brand-teal hover:bg-brand-teal-hover text-brand-dark font-medium px-6 py-2.5 rounded-full transition-colors text-sm">
+      <button className="btn-pulse bg-brand-teal hover:bg-brand-teal-hover text-brand-dark font-medium px-6 py-2.5 rounded-full transition-colors text-sm">
         Agendar Consulta
       </button>
     </div>
@@ -43,70 +43,76 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-    <div className="space-y-8">
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-teal/30 bg-brand-teal/10 text-brand-teal text-xs font-medium">
-        <Sparkles className="w-3.5 h-3.5" />
-        Odontologia de Alto Padrão
-      </div>
-      
-      <h1 className="font-serif text-5xl lg:text-7xl leading-tight">
-        Seu Sorriso <br />
-        Perfeito <br />
-        <span className="text-brand-teal">Começa Aqui</span>
-      </h1>
-      
-      <p className="text-gray-400 text-lg max-w-md leading-relaxed">
-        Estética dental com tecnologia de ponta em um ambiente projetado como um spa para garantir seu conforto absoluto.
-      </p>
-      
-      <div className="flex flex-wrap items-center gap-4">
-        <button className="bg-brand-teal hover:bg-brand-teal-hover text-brand-dark font-medium px-8 py-3.5 rounded-full transition-colors flex items-center gap-2">
-          Agendar Consulta <ChevronRight className="w-4 h-4" />
-        </button>
-        <button className="px-8 py-3.5 rounded-full border border-white/20 hover:bg-white/5 transition-colors font-medium">
-          Ver Tratamentos
-        </button>
-      </div>
-      
-      <div className="flex items-center gap-4 pt-4">
-        <div className="flex -space-x-3">
-          {[1, 2, 3].map((i) => (
-            <img 
-              key={i}
-              src={`https://i.pravatar.cc/100?img=${i + 10}`} 
-              alt="Paciente" 
-              className="w-10 h-10 rounded-full border-2 border-brand-dark"
-            />
-          ))}
-        </div>
-        <div>
-          <div className="flex text-brand-gold">
-            {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
-          </div>
-          <p className="text-xs text-gray-400 mt-0.5">2.000+ pacientes satisfeitos</p>
-        </div>
-      </div>
-    </div>
-    
-    <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-tr from-brand-teal/20 to-transparent rounded-[2.5rem] blur-3xl -z-10"></div>
+  <section className="relative min-h-[100svh] flex items-center pt-20 pb-12 overflow-hidden">
+    {/* Background Image with Overlay */}
+    <div className="absolute inset-0 z-0">
       <img 
-        src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop" 
+        src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2000&auto=format&fit=crop" 
         alt="Dentista atendendo paciente" 
-        className="rounded-[2.5rem] w-full object-cover h-[600px] border border-white/10"
+        className="w-full h-full object-cover object-center"
       />
-      
-      {/* Floating Badge */}
-      <div className="absolute bottom-8 left-8 bg-brand-dark/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 shadow-2xl">
-        <div className="w-12 h-12 bg-brand-teal/20 rounded-full flex items-center justify-center">
-          <Heart className="w-6 h-6 text-brand-teal fill-brand-teal" />
+      {/* Dark overlay to make text readable */}
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-brand-dark/10"></div>
+    </div>
+
+    <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="space-y-8">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-teal/30 bg-brand-teal/10 text-brand-teal text-xs font-medium backdrop-blur-sm">
+          <Sparkles className="w-3.5 h-3.5" />
+          Odontologia de Alto Padrão
         </div>
-        <div>
-          <p className="text-xs text-gray-400">Índice de Avaliação</p>
-          <p className="font-serif text-xl font-semibold flex items-center gap-1">
-            98% Satisfação <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
-          </p>
+        
+        <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight">
+          Seu Sorriso <br />
+          Perfeito <br />
+          <span className="text-brand-teal">Começa Aqui</span>
+        </h1>
+        
+        <p className="text-gray-300 text-lg sm:text-xl max-w-md leading-relaxed">
+          Estética dental com tecnologia de ponta em um ambiente projetado como um spa para garantir seu conforto absoluto.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <button className="btn-pulse bg-brand-teal hover:bg-brand-teal-hover text-brand-dark font-medium px-8 py-3.5 rounded-full transition-colors flex items-center justify-center gap-2">
+            Agendar Consulta <ChevronRight className="w-4 h-4" />
+          </button>
+          <button className="px-8 py-3.5 rounded-full border border-white/30 hover:bg-white/10 transition-colors font-medium backdrop-blur-sm flex items-center justify-center">
+            Ver Tratamentos
+          </button>
+        </div>
+        
+        <div className="flex items-center gap-4 pt-4">
+          <div className="flex -space-x-3">
+            {[1, 2, 3].map((i) => (
+              <img 
+                key={i}
+                src={`https://i.pravatar.cc/100?img=${i + 10}`} 
+                alt="Paciente" 
+                className="w-10 h-10 rounded-full border-2 border-brand-dark"
+              />
+            ))}
+          </div>
+          <div>
+            <div className="flex text-brand-gold">
+              {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
+            </div>
+            <p className="text-xs text-gray-300 mt-0.5">2.000+ pacientes satisfeitos</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="hidden lg:flex justify-end items-end h-full">
+        {/* Floating Badge */}
+        <div className="bg-brand-dark/70 backdrop-blur-md border border-white/10 rounded-2xl p-5 flex items-center gap-4 shadow-2xl transform translate-y-12">
+          <div className="w-12 h-12 bg-brand-teal/20 rounded-full flex items-center justify-center">
+            <Heart className="w-6 h-6 text-brand-teal fill-brand-teal" />
+          </div>
+          <div>
+            <p className="text-xs text-gray-300">Índice de Avaliação</p>
+            <p className="font-serif text-xl font-semibold flex items-center gap-1">
+              98% Satisfação <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -470,7 +476,7 @@ export default function App() {
       <Footer />
       
       {/* Floating WhatsApp Button */}
-      <a href="#" className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
+      <a href="#" className="btn-pulse-wpp fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
         <MessageCircle className="w-7 h-7 text-white" />
       </a>
     </div>
