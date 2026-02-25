@@ -89,7 +89,7 @@ const Hero = () => {
         
         {city && (
           <div className="inline-block bg-brand-teal/20 border border-brand-teal/30 text-brand-teal font-semibold text-xs sm:text-base px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl backdrop-blur-md shadow-[0_0_20px_rgba(0,210,143,0.3)]">
-            Atendimento exclusivo para pacientes de {city} e região.
+            Atendimentos exclusivos na cidade de {city}.
           </div>
         )}
         
